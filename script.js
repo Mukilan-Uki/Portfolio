@@ -1,32 +1,32 @@
 const portfolioData = {
     projects: [
         { 
-            title: "To-Do List Website", 
-            subtitle: "Responsive Design", 
+            title: "Cinema Ticket Bokking Web Page", 
+            subtitle: "Responsive & Dark theme Design", 
             image: "assets/project1.JPG",
-            description: "A fully functional to-do list application with drag & drop, filtering, and local storage.",
-            technologies: ["HTML", "CSS", "JavaScript", "Local Storage"]
+            description: "It isn't a full functional ticket booking web site. Its a prototype(Figma Design).",
+            technologies: ["Figma", "Some other web sides"]
         },
         { 
-            title: "Making Ghost", 
-            subtitle: "Responsive Design", 
+            title: "Jewellary shop web side",
+            subtitle: "!st try of a full web page Figma design", 
             image: "assets/project2.JPG",
-            description: "A creative platform for ghost animation and interactive storytelling.",
-            technologies: ["HTML", "CSS", "JavaScript", "Canvas API"]
+            description: "A small try of new web design & I also coded this design",
+            technologies: ["HTML", "CSS", "Figma"]
         },
         { 
-            title: "Hello There", 
-            subtitle: "Responsive Design", 
+            title: "To-Do list web side", 
+            subtitle: "Responsive & Light theme Design", 
             image: "assets/project3.JPG",
-            description: "A modern landing page with smooth animations and interactive elements.",
-            technologies: ["HTML", "CSS", "JavaScript", "GSAP"]
+            description: "A modern life's importend think, Its only a web design",
+            technologies: ["JavaScript"]
         },
         { 
-            title: "Ukis Dreamspace", 
+            title: "Dressing shopping web site", 
             subtitle: "Responsive Design", 
             image: "assets/project4.JPG",
-            description: "A portfolio website for Dreamspace Academy showcasing student projects.",
-            technologies: ["React", "Node.js", "MongoDB", "Express"]
+            description: "It is created for save your time to shopping",
+            technologies: ["React","HTML", "CSS", "Bootstrap"]
         },
     ],
     skills: [
