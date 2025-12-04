@@ -1,4 +1,3 @@
-// Portfolio Data
 const portfolioData = {
     projects: [
         { 
