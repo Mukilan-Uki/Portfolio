@@ -196,12 +196,21 @@ const Projects = () => {
                   <h5 className="modal-title">{selectedProject.title}</h5>
                   <p className="modal-subtitle">{selectedProject.subtitle}</p>
                 </div>
-                <button
-                  type="button"
-                  className="btn-close"
-                  onClick={closeModal}
-                  aria-label="Close"
-                ></button>
+                <div className="modal-header-actions">
+                  <button
+                    type="button"
+                    className="btn btn-outline-glass btn-back"
+                    onClick={closeModal}
+                  >
+                    <i className="fas fa-arrow-left"></i> Back
+                  </button>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    onClick={closeModal}
+                    aria-label="Close"
+                  ></button>
+                </div>
               </div>
               <div className="modal-body">
                 <div className="modal-image-container">
