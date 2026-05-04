@@ -1,0 +1,23 @@
+# Root node_modules (the extra one!)
+/node_modules
+node_modules/
+
+# Frontend node_modules (already handled)
+frontend/node_modules/
+
+# Build outputs
+/dist
+/build
+frontend/build/
+
+# Environment files
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
