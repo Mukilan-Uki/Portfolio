@@ -16,9 +16,14 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    alert("Thank you for your message! I will get back to you soon.");
+
+    const subject = `Portfolio inquiry from ${formData.name}`;
+    const body = `${formData.message}\n\nEmail: ${formData.email}`;
+    const mailtoLink = `mailto:mvasantharaj1972@gmail.com?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoLink;
     setFormData({ name: "", email: "", message: "" });
   };
 

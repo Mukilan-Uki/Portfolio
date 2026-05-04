@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import DisasterAlertSystem from "../assets2/DisasterAlertSystem.JPG";
+import CubeCake from "../assets2/cubeCakeShop.png";
+import Zenzo from "../assets2/zenzo.png";
 
 const Projects = () => {
   const [currentProject, setCurrentProject] = useState(0);
@@ -8,42 +10,70 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "Cube Cake - Custom Cake Builder",
+      subtitle: "Full-stack e-commerce platform",
+      image: CubeCake,
+      description:
+        "A full-stack web application allowing users to customize cakes (base, frosting, size) with user authentication, shop registration, and order management system. Deployed with Vercel frontend + Render backend.",
+      technologies: [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Vercel",
+        "REST API",
+        "JWT Authentication",
+      ],
+      link: "https://cube-cake-deploy.vercel.app/",
+      note: "Live — backend cold start may take 30 seconds",
+    },
+    {
+      title: "ZENZO Studio - Cinematic and Branding Portfolio",
+      subtitle: "Portfolio website for a creative studio",
+      image: Zenzo,
+      description:
+        "A portfolio website showcasing ZENZO Studio's cinematic and branding work, featuring a sleek design and smooth navigation to highlight their creative projects.",
+      technologies: ["React", "HTML", "CSS", "Bootstrap"],
+      link: "https://mukilan-uki.github.io/zenzoStudioDemo/",
+      note: "Live demo",
+    },
+    {
       title: "Cinema Ticket Booking Web Page Design",
-      subtitle: "Responsive & Dark theme Design",
+      subtitle: "Responsive dark prototype",
       image: "/assets/project1.JPG",
       description:
-        "It isn't a full functional ticket booking web site. Its a prototype(Figma Design).",
-      technologies: ["Figma", "Some other web sides"],
+        "A Figma-designed cinema ticket booking experience with mobile-first, dark UI styling and clean hierarchy.",
+      technologies: ["Figma", "UI/UX", "Responsive Design"],
+      link: "https://mukilan-uki.github.io/Disaster-alert-system/",
+      note: "Design showcase",
     },
     {
       title: "Disaster Alert System",
-      subtitle: "Using realtime API to get the data and show it in a web page",
+      subtitle: "Realtime API dashboard",
       image: DisasterAlertSystem,
-      description: (
-        <a
-          href="https://mukilan-uki.github.io/Disaster-alert-system/"
-          className="btn btn-light"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          View Project
-        </a>
-      ),
+      description:
+        "A realtime alert dashboard built with React and extensible API integration for fast incident visibility.",
       technologies: ["React", "Bootstrap", "API Integration"],
+      link: "https://mukilan-uki.github.io/Disaster-alert-system/",
+      github: "https://github.com/Mukilan-Uki/Disaster-alert-system",
     },
     {
-      title: "To-Do list web side",
-      subtitle: "Responsive & Light theme Design",
+      title: "To-Do List Website",
+      subtitle: "Simple productivity layout",
       image: "/assets/project3.JPG",
-      description: "A modern life's important thing, Its only a web design",
-      technologies: ["Figma", "Some other web sides"],
+      description:
+        "A responsive task management landing page built to demonstrate clean information flow and CTA usability.",
+      technologies: ["Figma", "HTML", "CSS"],
+      note: "UI concept",
     },
     {
-      title: "Dressing shopping web site",
-      subtitle: "Responsive Design",
+      title: "Dressing Shopping Website",
+      subtitle: "E-commerce concept",
       image: "/assets/project4.JPG",
-      description: "It is created for save your time to shopping",
+      description:
+        "A modern online shopping landing page designed to help users find outfits quickly with an intuitive grid layout.",
       technologies: ["React", "HTML", "CSS", "Bootstrap"],
+      note: "Prototype site",
     },
   ];
 
@@ -93,37 +123,41 @@ const Projects = () => {
 
         <div className="projects-container">
           <div className="projects-grid">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="project-card glass-card"
-                data-index={index}
-              >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="project-image"
-                />
-                <div className="project-overlay">
-                  <h3 className="project-title">{project.title}</h3>
-                  <p className="project-subtitle">{project.subtitle}</p>
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-technologies">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="tech-tag">
-                        {tech}
-                      </span>
-                    ))}
+            {projects.map((project, index) => {
+              let cardPosition = "hidden";
+              if (index === currentProject) cardPosition = "active";
+              else if (
+                index ===
+                (currentProject - 1 + projects.length) % projects.length
+              )
+                cardPosition = "prev";
+              else if (index === (currentProject + 1) % projects.length)
+                cardPosition = "next";
+
+              return (
+                <div
+                  key={index}
+                  className={`project-card glass-card position-${cardPosition}`}
+                  data-index={index}
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="project-image"
+                  />
+                  <div className="project-overlay">
+                    <h3 className="project-title">{project.title}</h3>
+                    <p className="project-subtitle">{project.subtitle}</p>
+                    <button
+                      className="btn btn-primary-glass mt-3 view-project-btn"
+                      onClick={() => handleViewProject(project)}
+                    >
+                      View Details
+                    </button>
                   </div>
-                  <button
-                    className="btn btn-primary-glass mt-3 view-project-btn"
-                    onClick={() => handleViewProject(project)}
-                  >
-                    View Details
-                  </button>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="project-navigation">
@@ -152,30 +186,82 @@ const Projects = () => {
           style={{ display: "block" }}
           onClick={closeModal}
         >
-          <div className="modal-dialog modal-dialog-centered modal-lg">
+          <div
+            className="modal-dialog modal-dialog-centered modal-fullscreen-custom"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="modal-content glass-card">
               <div className="modal-header border-0">
-                <h5 className="modal-title">{selectedProject.title}</h5>
+                <div className="modal-title-section">
+                  <h5 className="modal-title">{selectedProject.title}</h5>
+                  <p className="modal-subtitle">{selectedProject.subtitle}</p>
+                </div>
                 <button
                   type="button"
                   className="btn-close"
                   onClick={closeModal}
+                  aria-label="Close"
                 ></button>
               </div>
               <div className="modal-body">
-                <img
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  className="img-fluid mb-3"
-                />
-                <p>{selectedProject.description}</p>
-                <div className="technologies">
-                  <strong>Technologies:</strong>
-                  {selectedProject.technologies.map((tech, index) => (
-                    <span key={index} className="badge bg-primary me-2">
-                      {tech}
-                    </span>
-                  ))}
+                <div className="modal-image-container">
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="modal-project-image"
+                  />
+                </div>
+                <div className="modal-details">
+                  <div className="modal-section">
+                    <h6 className="modal-section-title">About This Project</h6>
+                    <p className="modal-description">
+                      {selectedProject.description}
+                    </p>
+                  </div>
+                  <div className="modal-section">
+                    <h6 className="modal-section-title">Technologies Used</h6>
+                    <div className="technologies-container">
+                      {selectedProject.technologies.map((tech, index) => (
+                        <span
+                          key={index}
+                          className="badge bg-primary me-2 mb-2"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="modal-section">
+                    <h6 className="modal-section-title">Links</h6>
+                    <div className="d-flex gap-3 flex-wrap">
+                      {selectedProject.link && (
+                        <a
+                          href={selectedProject.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-outline-glass"
+                        >
+                          <i className="fas fa-external-link-alt"></i> View Live
+                        </a>
+                      )}
+                      {selectedProject.github && (
+                        <a
+                          href={selectedProject.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn btn-glass"
+                        >
+                          <i className="fab fa-github"></i> Source Code
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                  {selectedProject.note && (
+                    <div className="modal-note">
+                      <i className="fas fa-info-circle"></i>{" "}
+                      {selectedProject.note}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

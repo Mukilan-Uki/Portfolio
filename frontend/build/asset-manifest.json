@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.88e58aa3.css",
+    "main.js": "/static/js/main.a59d712f.js",
+    "static/media/cubeCakeShop.png": "/static/media/cubeCakeShop.31be3566f335f7f3a1d0.png",
+    "static/media/zenzo.png": "/static/media/zenzo.968459ce3ff3fc527738.png",
+    "static/media/DisasterAlertSystem.JPG": "/static/media/DisasterAlertSystem.e6af5f34dcc5e28f387a.JPG",
+    "index.html": "/index.html",
+    "main.88e58aa3.css.map": "/static/css/main.88e58aa3.css.map",
+    "main.a59d712f.js.map": "/static/js/main.a59d712f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.88e58aa3.css",
+    "static/js/main.a59d712f.js"
+  ]
+}

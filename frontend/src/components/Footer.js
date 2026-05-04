@@ -1,6 +1,8 @@
 import React from "react";
 
 const Footer = () => {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="footer">
       <div className="container">
@@ -10,7 +12,7 @@ const Footer = () => {
             <span className="brand-name">Mukilan</span>
           </div>
 
-          <p className="footer-text">© 2025 Mukilan. All rights reserved.</p>
+          <p className="footer-text">© {year} Mukilan. All rights reserved.</p>
 
           <div className="footer-links">
             <a href="#home">Home</a>
